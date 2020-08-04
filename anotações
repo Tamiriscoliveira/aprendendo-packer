@@ -1,0 +1,43 @@
+Packer é uma ferramenta de código aberto, que cria imagens idênticas para várias plataformas a partir de uma única configuração de código-fonte. 
+
+No packer tem um arquivo json que o binario lê o arquivo e cria a imagem(artefato)
+No arquivo json descreve como deve ser criada a maquina.
+
+
+NOTA:
+Infraestrutrua mutavel: e o mesmo servidor e ela muda com passar do tempo.
+Infraestrutrua inmutavel: quando modifica algo ele destroca ou troca o recurso, quando precisar modificar, não precisa mexer no mesmo servidor. E a ideia de gado e 
+animal de estimação.
+
+o packer cria uma imagem(foto), do que você precisa. Ele deixa a imagem pronta a partir do dia 0. Toda execução que ao final você tem uma imagem pronta.
+
+Terminologia;
+  Artefato é o resultado da execução de um packer build.
+  Builds  é uma tarefa que roda e produz a imagem
+  Builders é um componete dentro do packer é uma parte do packer que especifica como serão os arquivos. comands sub comando packer comando
+  Template packer é  arquivo json para a execução
+  
+Estrutura de um template packer  é um arquivo json usado para configurar vários componetes.
+
+JSON
+a virgula no json é usado para colocar mais de uma informação em um objeto. ele pode ser espaço em branco tudo que esta dentro da chaves é objeto
+o array serve para trabalhar com multiplos objetos 
+https://www.json.org/json-en.html não tem estrutura de comentário.
+
+quando começar com "_coment" e ignorado, porém somente funciona na raiz. o ultimo objeto não pode ter virgula  dentro o array.
+
+Dentro do arquivo json tem que ter pelo menos um  builders(especifica o que será construido).
+
+comandos do cli do packer commands é o subcomando (packer subcomando)
+
+Iniciando o packer dentro do docker
+docker run -i -t -v  $pwd:/app -w /app --entrypoint "" hashicorp/packer:light sh
+
+o container é a execução de uma imagem.
+
+validate é o comando para executar e verificar se tem erro
+
+template engine
+a parte do binario responsável por processar seu template.
+duas {} coloca objetos que são variaveis, quando não tem nada antes é uma função
+quando tem um ponto e o primero caractere maiusculo é uma variavel(do sistema).
